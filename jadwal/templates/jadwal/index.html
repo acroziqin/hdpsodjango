@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+Jadwal
+{% endblock page_title %}
+
+{% block style %}
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="{% static 'vendor/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+<!-- Select2 for dropdown-->
+<link rel="stylesheet" href="{% static 'vendor/select2/css/select2.min.css' %}">
+<!-- Clock Picker -->
+<link rel="stylesheet" href="{% static 'vendor/bootstrap-clockpicker/css/bootstrap-clockpicker.min.css' %}">
+{% endblock style %}
+
+{% block contents %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <button type="submit" class="btn btn-primary float-right">Submit <i class="fas fa-paper-plane ml-1"></i></button>
+      <h4>Anda bisa secara manual memasukkan data satu per satu atau langsung import dari file excel</h4>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- col (left) -->
+        <div class="col-md-6">
+          <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-calendar-alt mr-1"></i> Pilih hari</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                  title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove" data-toggle="tooltip"
+                  title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- checkbox -->
+                  <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="senin">
+                      <label for="senin">
+                        Senin
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- checkbox -->
+                  <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="jumat">
+                      <label for="jumat">
+                        Jumat
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- checkbox -->
+                  <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="selasa">
+                      <label for="selasa">
+                        Selasa
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- checkbox -->
+                  <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="sabtu">
+                      <label for="sabtu">
+                        Sabtu
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- checkbox -->
+                  <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="rabu">
+                      <label for="rabu">
+                        Rabu
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- checkbox -->
+                  <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="minggu">
+                      <label for="minggu">
+                        Minggu
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- checkbox -->
+                  <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="kamis">
+                      <label for="kamis">
+                        Kamis
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.Pilih Hari -->
+          <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-school mr-1"></i> Data Ruangan</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                  title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove" data-toggle="tooltip"
+                  title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Masukkan Kode Ruangan</label>
+                <p>Pisahkan dengan titik koma (;). Contoh: 101;102;103;104;105;106;304;305;306;307;308
+                </p>
+                <input type="text" class="form-control" placeholder="Masukkan kode ruangan ...">
+              </div>
+            </div>
+          </div>
+          <!-- Data Ruangan -->
+          <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-chalkboard-teacher mr-1"></i> Data Dosen</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                  title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove" data-toggle="tooltip"
+                  title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Masukkan Nama-Nama Dosen</label>
+                <p>Pisahkan dengan enter tanpa gelar. Contoh :</p>
+                <textarea class="form-control" rows="3" disabled style="overflow-y: hidden;">Achmad Choirur Roziqin
+      Imam Cholissodin
+      Bayu Rahayudi
+                            </textarea>
+                <br>
+                <textarea class="form-control" rows="3" placeholder="Masukkan nama-nama dosen ..."></textarea>
+              </div>
+            </div>
+          </div>
+          <!-- Data Dosen -->
+        </div>
+        <!-- /.col (left) -->
+
+        <!-- col (right) -->
+        <div class="col-md-6">
+          <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-clock mr-1"></i>Data Periode</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                  title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove" data-toggle="tooltip"
+                  title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <label>Durasi Tiap Periode:</label>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <select class="form-control select2">
+                        <option selected="selected">00</option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>...</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mt-2 pr-2"><b>jam</b></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <select class="form-control select2">
+                        <option selected="selected">00</option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>...</option>
+                        <option>57</option>
+                        <option>58</option>
+                        <option>59</option>
+                        <option>60</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mt-2 pr-2"><b>menit</b></div>
+                </div>
+              </div>
+              <!-- /.durasi tiap periode -->
+              <div class="form-group">
+                <label>Waktu mulai pada periode pertama:</label>
+                <div class="input-group clockpicker pull-center" data-placement="left" data-align="top"
+                  data-autoclose="true">
+                  <input type="text" class="form-control" value="09:30">
+                  <div class="input-group-append">
+                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                  </div>
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group -->
+              <div class="form-group">
+                <label>Total Periode:</label>
+                <input type="number" class="form-control" min="0" placeholder="Masukkan total periode ...">
+
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group -->
+
+            </div>
+          </div>
+          <!-- /.Data Periode -->
+          <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-book mr-1"></i>Data Mata Kuliah</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                  title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove" data-toggle="tooltip"
+                  title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Masukkan Nama-Nama Mata Kuliah</label>
+                <p>Pisahkan dengan enter. Contoh :</p>
+                <textarea class="form-control" rows="3" disabled style="overflow-y: hidden;">Pancasila
+      Bahasa Indonesia
+      Bahasa Inggris
+                          </textarea>
+                <br>
+                <textarea class="form-control" rows="3" placeholder="Masukkan nama-nama mata kuliah ..."></textarea>
+              </div>
+            </div>
+          </div>
+          <!-- Data Mata Kuliah -->
+          <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-microscope mr-1"></i>Data Kelas</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                  title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove" data-toggle="tooltip"
+                  title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Masukkan Kode Kelas</label>
+                <p>Pisahkan dengan titik koma (;). Contoh:
+                  PAI-1-A;PAI-1-B;PAI-3-A;PAI-3-B;PAI-5-A;MPI-1-A;MPI-3-A;PGMI-1-A </p>
+                <input type="text" class="form-control" placeholder="Masukkan kode kelas ...">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col (right) -->
+
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.Main content -->
+</div>
+<!-- /.content-wrapper -->
+{% endblock contents %}
+
+{% block script %}
+<!-- Select2 for dropdown -->
+<script src="{% static 'vendor/select2/js/select2.full.min.js' %}"></script>
+<!-- Clokpicker -->
+<script src="{% static 'vendor/bootstrap-clockpicker/js/bootstrap-clockpicker.min.js' %}"></script>
+<!-- Page script -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    // Clockpicker
+    $('.clockpicker').clockpicker();
+  })
+</script>
+{% endblock script %}
+  

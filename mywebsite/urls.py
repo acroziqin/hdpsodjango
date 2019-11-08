@@ -1,11 +1,17 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from jadwal.views import IndexView, TentukanView, ImportExcelView, HasilView
+from jadwal.views import IndexView, TentukanView, HasilView, importExcel
 
 urlpatterns = [
-    path('hasil', HasilView.as_view(template_name='jadwal/hasil.html')),
-    path('import_excel', ImportExcelView.as_view(template_name='jadwal/import_excel.html')),
-    path('tentukan', TentukanView.as_view(template_name='jadwal/tentukan.html')),
-    path('', IndexView.as_view(template_name='jadwal/index.html')),
+    path('hasil', HasilView.as_view(), name='hasil'),
+    # path('import_excel', ImportExcelView.as_view(), name='import_excel'),
+    path('import_excel', importExcel, name='import_excel'),
+    path('tentukan', TentukanView.as_view(), name='tentukan'),
+    path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

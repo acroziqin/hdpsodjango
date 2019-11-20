@@ -3,8 +3,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from jadwal.views import IndexView, TentukanView, HasilView, importExcel
+from jadwal.hdpso import HDPSO
 
 urlpatterns = [
+    path('hdpso', HDPSO.as_view(), name='hdpso'),
     path('hasil', HasilView.as_view(), name='hasil'),
     # path('import_excel', ImportExcelView.as_view(), name='import_excel'),
     path('import_excel', importExcel, name='import_excel'),

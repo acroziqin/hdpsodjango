@@ -16,7 +16,7 @@ Jadwal
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
-      <h1>Selamat Datang</h1>
+      <h1>{{fitness_terbaik}}</h1>
       <button type="submit" class="btn btn-primary float-right">Submit</button>
       <h4>Anda bisa secara manual memasukkan data satu per satu atau langsung import dari file excel</h4>
     </div><!-- /.container-fluid -->
@@ -144,44 +144,189 @@ Jadwal
                   </tr>
                 </thead>
                 <tbody>
-                  
-                  {% for hari, val_hari in hasils.items %}
-                    {% for ruangan, pelajaran in val_hari.items %}
                   <tr>
-                    {% if forloop.counter0 == 0 %}
-                    <td rowspan="{{ val_hari|length }}">{{ hari }}</td>
-                    {% endif %}
-                    <td>{{ ruangan }}</td>
-                    {% for data_pelajaran in pelajaran %}
-                      {% with data_pelajaran.0 as matkul %}
-                      {% with data_pelajaran.1 as sks %}
-                      {% with data_pelajaran.2 as dosen %}
-                      {% with data_pelajaran.3 as prodi %}
-                      {% with data_pelajaran.4 as kelas %}
-                    <td colspan="{{ sks }}" class="{% if sks > 1 %}text-light{% endif %}" 
-                    style="background-color:
-                    {% if prodi == 'PAI' %}
-                      #00B0F0
-                    {% elif prodi == 'MPI' %}
-                      #B91783
-                    {% elif prodi == 'PGMI' %}
-                      #833C0C                      
-                    {% endif %}
-                    ">
-                      {% if sks > 1 %}
-                      {{ matkul }}<br>{{ dosen }}<br>Kelas - {{ kelas }}
-                      {% endif %}
-                    </td>
-                      {% endwith %}
-                      {% endwith %}
-                      {% endwith %}
-                      {% endwith %}
-                      {% endwith %}
-                    {% endfor %}
+                    <td rowspan="4">Senin</td>
+                    <td>101</td>
+                    <td colspan="2" class="text-light" style="background-color:#833C0C">Bahasa Arab<br>Moh.
+                      Nadhif<br>Kelas - A</td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Takhrijul
+                      Hadits<br>Damanhuri<br>Kelas - A</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
-                    {% endfor %}
-                  {% endfor %}
-
+                  <tr>
+                    <td>102</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">IAD & IBD<br>Misbahul
+                      Munir<br>Kelas - A</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>103</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#B91783">Bahasa Inggris<br>Hilman
+                      Wajdi<br>Kelas - A</td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Pancasila<br>Ali
+                      Rif'an<br>Kelas
+                      - A</td>
+                    <td colspan="2" class="text-light" style="background-color:#B91783">Studi Al-Qur'an<br>Mokhamat
+                      Nafi'<br>Kelas - A</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>306</td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Takhrijul
+                      Hadits<br>Damanhuri<br>Kelas - B</td>
+                    <td colspan="2" class="text-light" style="background-color:#B91783">Ushul Fiqih<br>Kasuwi
+                      Saiban<br>Kelas - A</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td rowspan="4">Rabu</td>
+                    <td>101</td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Bahasa
+                      Indonesia<br>Handoko<br>Kelas - A</td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Bahasa Inggris<br>Hilman
+                      Wajdi<br>Kelas - A</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>102</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="3" class="text-light" style="background-color:#00B0F0">Qowaidul Fiqih<br>Zaenu
+                      Zuhdi<br>Kelas - A</td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Bahasa Arab<br>Moh.
+                      Nadhif<br>Kelas - A</td>
+                  </tr>
+                  <tr>
+                    <td>304</td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#833C0C">Studi Al-Qur'an<br>Mokhamat
+                      Nafi'<br>Kelas - A</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>305</td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Ushul Fiqih<br>Kasuwi
+                      Saiban<br>Kelas - B</td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">IAD & IBD<br>Misbahul
+                      Munir<br>Kelas - B</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td rowspan="4">Jumat</td>
+                    <td>101</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Pengantar Studi Islam<br>Umi
+                      Salamah<br>Kelas - B</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>103</td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#B91783">Pengantar Studi Islam<br>Umi
+                      Salamah<br>Kelas - A</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>305</td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Bahasa
+                      Indonesia<br>Handoko<br>Kelas - B</td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Takhrijul
+                      Hadits<br>Damanhuri<br>Kelas - B</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>306</td>
+                    <td></td>
+                    <td colspan="2" class="text-light" style="background-color:#00B0F0">Ushul Fiqih<br>Kasuwi
+                      Saiban<br>Kelas - A</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
                 </tbody>
               </table>
             </div>

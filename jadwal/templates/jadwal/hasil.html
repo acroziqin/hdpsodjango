@@ -144,20 +144,18 @@ Jadwal
                   </tr>
                 </thead>
                 <tbody>
-                  
-                  {% for hari, val_hari in hasils.items %}
-                    {% for ruangan, pelajaran in val_hari.items %}
+
+                  {% for hari, isi_ruangan in hasil %}
                   <tr>
-                    {% if forloop.counter0 == 0 %}
-                    <td rowspan="{{ val_hari|length }}">{{ hari }}</td>
-                    {% endif %}
+                    <td rowspan="{{ isi_ruangan|length }}">{{ hari }}</td>
+                    {% for ruangan, pelajaran_di_ruangan in isi_ruangan %}
                     <td>{{ ruangan }}</td>
-                    {% for data_pelajaran in pelajaran %}
-                      {% with data_pelajaran.0 as matkul %}
-                      {% with data_pelajaran.1 as sks %}
-                      {% with data_pelajaran.2 as dosen %}
-                      {% with data_pelajaran.3 as prodi %}
-                      {% with data_pelajaran.4 as kelas %}
+                      {% for data_pelajaran in pelajaran_di_ruangan %}
+                        {% with data_pelajaran.0 as matkul %}
+                        {% with data_pelajaran.1 as sks %}
+                        {% with data_pelajaran.2 as dosen %}
+                        {% with data_pelajaran.3 as prodi %}
+                        {% with data_pelajaran.4 as kelas %}
                     <td colspan="{{ sks }}" class="{% if sks > 1 %}text-light{% endif %}" 
                     style="background-color:
                     {% if prodi == 'PAI' %}

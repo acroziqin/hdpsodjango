@@ -26,7 +26,7 @@ Jadwal
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <div class="input-group">
               <select class="form-control select2" id="lihat" onchange="">
@@ -42,7 +42,7 @@ Jadwal
 
           <h1 id="halooo"></h1>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="form-group" id="semua_hari" style="display: none">
             <div class="input-group">
               <select class="form-control select2">
@@ -105,6 +105,9 @@ Jadwal
               </select>
             </div>
           </div>
+        </div>
+        <div class="col-md-3">
+          {% comment %} <h6 class="float-right">Fitness : 0.22222</h6> {% endcomment %}
         </div>
       </div>
       <div class="card">
@@ -394,7 +397,6 @@ Jadwal
 <!-- bs-custom-file-input -->
 <script src="{% static 'vendor/bs-custom-file-input/bs-custom-file-input.min.js' %}"></script>
 <!-- Page script -->
-
 <script>
   $(function () {
     //Initialize Select2 Elements
